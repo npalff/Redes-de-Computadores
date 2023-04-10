@@ -70,14 +70,14 @@ def ACK_Duplicado(counter_Comandos):
     if(estadoAtual==0):
         dupACKcount+=1
         if dupACKcount==3:
-            ssthresh = math.floor(cwnd/2)
+            ssthresh = cwnd/2
             cwnd = ssthresh + 3
             estadoAtual = 2
 
     elif(estadoAtual==1):
         dupACKcount+=1
         if dupACKcount==3:
-            ssthresh = math.floor(cwnd/2)
+            ssthresh = cwnd/2
             cwnd = ssthresh + 3
             estadoAtual = 2
 
@@ -92,18 +92,18 @@ def timeout(counter_Comandos):
     print(counter_Comandos,".\tExpiração do Temporizador: \n")
     
     if(estadoAtual==0):
-        ssthresh = math.floor(cwnd/2)
+        ssthresh = cwnd/2
         cwnd=1
         dupACKcount=0
 
     elif(estadoAtual==1):
-        ssthresh = math.floor(cwnd/2)
+        ssthresh = cwnd/2
         cwnd=1
         dupACKcount=0
         estadoAtual = 0
 
     elif(estadoAtual==2):
-        ssthresh = math.floor(cwnd/2)
+        ssthresh = cwnd/2
         cwnd=1
         dupACKcount=0
         estadoAtual = 0
